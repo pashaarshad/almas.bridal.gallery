@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-cinzel: 'Cinzel', serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-montserrat);
+  background-color: #FAF8F5;
+  color: #1A1A1A;
+  overflow-x: hidden;
+}
+
+/* Custom Luxury Gradients & Borders */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #A87932 0%, #D8B26E 40%, #A4732B 70%, #DEBE7E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #B5843E 0%, #D4A962 50%, #A67631 100%);
+}
+
+.gold-gradient-subtle {
+  background: linear-gradient(180deg, #FDFCF9 0%, #F5EFEB 100%);
+}
+
+.gold-border {
+  border-color: #CBA266;
+}
+
+.gold-button {
+  background-color: #C69A59;
+  color: #FFFFFF;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gold-button:hover {
+  background-color: #B38747;
+  box-shadow: 0 8px 24px rgba(198, 154, 89, 0.35);
+  transform: translateY(-1px);
+}
+
+.luxury-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.12);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8B26E;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B5843E;
+}
