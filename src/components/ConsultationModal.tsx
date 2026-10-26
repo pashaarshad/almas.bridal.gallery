@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Calendar, Clock, MapPin, Sparkles, Check, Phone } from "lucide-react";
+import { X, Calendar, Clock, MapPin, Sparkles, Check, Phone, Loader2, AlertCircle } from "lucide-react";
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -10,6 +10,8 @@ interface ConsultationModalProps {
 
 export default function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -22,9 +24,33 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/consultations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit request.");
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      console.error("Consultation submission error:", err);
+      setErrorMessage(err.message || "An unexpected error occurred. Please try again or reach out on WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleWhatsAppDirect = () => {
@@ -52,10 +78,10 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
               <Check className="w-8 h-8" />
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl text-[#1E1915]">
-              Consultation Requested
+              Consultation Confirmed
             </h3>
             <p className="text-sm text-[#5B5246] max-w-md mx-auto leading-relaxed">
-              Thank you, <strong className="text-[#201B17]">{formData.name}</strong>. Our senior bridal couture stylist will contact you via WhatsApp and phone within 24 hours to confirm your private appointment.
+              Thank you, <strong className="text-[#201B17]">{formData.name}</strong>. Your consultation details have been recorded in our atelier system. Our senior bridal couture stylist will contact you via WhatsApp and phone within 24 hours to confirm your private appointment.
             </p>
             <div className="pt-4 flex flex-col sm:flex-row justify-center gap-3">
               <button
@@ -93,6 +119,13 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                 Select your preferred couture styling session with our master couturiers.
               </p>
             </div>
+
+            {errorMessage && (
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-800 rounded-lg text-xs flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-600" />
+                <span>{errorMessage}</span>
+              </div>
+            )}
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -205,9 +238,17 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full bg-[#C69A59] hover:bg-[#B38747] text-white py-3 rounded text-xs uppercase tracking-widest font-medium transition-all shadow-md hover:shadow-lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#C69A59] hover:bg-[#B38747] disabled:bg-[#C69A59]/60 text-white py-3 rounded text-xs uppercase tracking-widest font-medium transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                 >
-                  Request Consultation Appointment
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Saving to Atelier System...</span>
+                    </>
+                  ) : (
+                    <span>Request Consultation Appointment</span>
+                  )}
                 </button>
               </div>
 
