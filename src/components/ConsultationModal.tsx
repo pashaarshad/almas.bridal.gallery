@@ -18,7 +18,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
     email: "",
     weddingDate: "",
     coutureType: "Bridal Lehenga",
-    consultationType: "Dubai Atelier (In-Person)",
+    consultationType: "Mumbai Flagship Store (Vakola, Santacruz East)",
     message: "",
   });
 
@@ -57,7 +57,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
     const text = encodeURIComponent(
       `Hello ALMAS Bridal Gallery, I would like to book a private consultation for ${formData.coutureType}. My wedding date is ${formData.weddingDate || 'TBD'}. Name: ${formData.name || 'Bridal Client'}.`
     );
-    window.open(`https://wa.me/971501234567?text=${text}`, "_blank");
+    window.open(`https://wa.me/919004656157?text=${text}`, "_blank");
   };
 
   return (
@@ -214,10 +214,10 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                     onChange={(e) => setFormData({ ...formData, consultationType: e.target.value })}
                     className="w-full bg-white border border-[#D5C6AF] rounded px-3.5 py-2.5 text-xs text-[#201C18] focus:outline-none focus:border-[#C69A59]"
                   >
-                    <option value="Dubai Atelier (In-Person)">Dubai Atelier (In-Person)</option>
+                    <option value="Mumbai Flagship Store (Vakola, Santacruz East)">Mumbai Store (Vakola, Santacruz East)</option>
                     <option value="Virtual Video Consultation">Virtual Video Consultation (Worldwide)</option>
-                    <option value="London Private Trunk Show">London VIP Trunk Show</option>
-                    <option value="Mumbai Studio Consultation">Mumbai Consultation</option>
+                    <option value="London VIP Trunk Show">London VIP Trunk Show</option>
+                    <option value="Dubai Atelier Consultation">Dubai Atelier Consultation</option>
                   </select>
                 </div>
               </div>
@@ -258,7 +258,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   onClick={handleWhatsAppDirect}
                   className="text-xs text-[#635848] hover:text-[#075E54] flex items-center justify-center gap-1.5 mx-auto font-medium"
                 >
-                  <span>Or book instantly via WhatsApp: +971 50 123 4567</span>
+                  <span>Or book instantly via WhatsApp: +91 90046 56157</span>
                 </button>
               </div>
             </form>

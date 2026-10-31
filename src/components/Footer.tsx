@@ -2,7 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { MapPin, Phone, Mail } from "lucide-react";
+import Link from "next/link";
+import { MapPin, Phone, Mail, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -32,7 +33,7 @@ export default function Footer() {
             </p>
 
             <p className="text-xs text-[#9E9589] font-light max-w-sm leading-relaxed">
-              Bespoke luxury bridal and groom couture crafted with centuries of heritage embroidery for life&apos;s most unforgettable celebrations.
+              27 Years of Timeless Elegance. Bespoke luxury bridal & groom couture across London, Mumbai, and Colombo.
             </p>
 
             {/* Social Icons matching screenshot */}
@@ -64,15 +65,6 @@ export default function Footer() {
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                aria-label="Pinterest"
-                className="w-8 h-8 rounded-full border border-[#2D2A26] flex items-center justify-center text-[#B0A696] hover:text-[#D4AF37] hover:border-[#D4AF37] transition-colors"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.332 1.365-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
                 </svg>
               </a>
             </div>
@@ -110,30 +102,41 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-[#D4AF37] transition-colors">
-                  Contact
-                </a>
+                <Link href="/admin" className="text-[#D4AF37] hover:underline flex items-center gap-1 font-medium">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>Admin Panel</span>
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Get in Touch (lg:col-span-3) */}
+          {/* Column 3: Get in Touch & Mumbai Flagship Store Details (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-4">
             <h3 className="font-cinzel text-sm uppercase tracking-[0.2em] text-[#F3EEE6] font-semibold">
-              Get in Touch
+              Mumbai Boutique
             </h3>
-            <ul className="space-y-3.5 text-xs text-[#A89E90] font-light">
-              <li className="flex items-start space-x-3">
+            <ul className="space-y-3 text-xs text-[#A89E90] font-light">
+              <li className="flex items-start space-x-2.5">
                 <MapPin className="w-4 h-4 text-[#C69A59] flex-shrink-0 mt-0.5" />
-                <span>Dubai, UAE</span>
+                <span>
+                  Shop No. 2 Vaviya Mansion 33/257, Anand Nagar, Om Co-op HSG SOC Ltd, Nehru Road, Vakola, Santacruz (E), Mumbai 400055
+                </span>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center space-x-2.5">
                 <Phone className="w-4 h-4 text-[#C69A59] flex-shrink-0" />
-                <a href="tel:+971501234567" className="hover:text-[#D4AF37] transition-colors">
-                  +971 50 123 4567
-                </a>
+                <div className="flex flex-col">
+                  <a href="tel:+919004656157" className="hover:text-[#D4AF37] transition-colors">
+                    +91 90046 56157
+                  </a>
+                  <a href="tel:+919892274267" className="hover:text-[#D4AF37] transition-colors">
+                    +91 98922 74267
+                  </a>
+                  <a href="tel:+918655071053" className="hover:text-[#D4AF37] transition-colors">
+                    +91 86550 71053
+                  </a>
+                </div>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center space-x-2.5">
                 <Mail className="w-4 h-4 text-[#C69A59] flex-shrink-0" />
                 <a href="mailto:info@almasbridalgallery.com" className="hover:text-[#D4AF37] transition-colors">
                   info@almasbridalgallery.com
@@ -141,12 +144,12 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="pt-2 text-[11px] text-[#786F62] leading-relaxed">
-              By appointment only. Private VIP atelier consultations available worldwide.
+            <div className="pt-1 text-[11px] text-[#A69784] leading-relaxed">
+              Global Ateliers: London • Mumbai • Colombo • Dubai
             </div>
           </div>
 
-          {/* Column 4: Royal Couple Gold Line Art (lg:col-span-3) matching Screenshot 3 */}
+          {/* Column 4: Royal Couple Gold Line Art (lg:col-span-3) */}
           <div className="lg:col-span-3 flex justify-center lg:justify-end">
             <div className="relative w-64 h-64 sm:w-72 sm:h-72 opacity-80 hover:opacity-100 transition-opacity">
               <Image
@@ -164,9 +167,11 @@ export default function Footer() {
         <div className="mt-14 pt-8 border-t border-[#221F1B] flex flex-col sm:flex-row justify-between items-center text-[11px] text-[#736B5F] font-light gap-4">
           <p>© 2026 ALMAS BRIDAL GALLERY. All Rights Reserved.</p>
           <div className="flex space-x-6">
+            <Link href="/admin" className="hover:text-[#D4AF37] transition-colors">
+              Store Manager Portal
+            </Link>
             <a href="#" className="hover:text-[#D4AF37] transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-[#D4AF37] transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-[#D4AF37] transition-colors">Bespoke Orders</a>
           </div>
         </div>
 

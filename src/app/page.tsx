@@ -13,6 +13,7 @@ import Footer from "../components/Footer";
 import ConsultationModal from "../components/ConsultationModal";
 import QuickViewModal from "../components/QuickViewModal";
 import SearchModal from "../components/SearchModal";
+import DiscountBannerModal from "../components/DiscountBannerModal";
 
 export default function Home() {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -91,6 +92,9 @@ export default function Home() {
         onClose={() => setSearchOpen(false)}
         onSelectResult={handleSearchResult}
       />
+
+      {/* 10% Offline In-Store Coupon Marketing Modal & Floating Trigger */}
+      <DiscountBannerModal />
     </main>
   );
 }

@@ -39,7 +39,7 @@ export default function ConsultationBanner({ onOpenBooking }: ConsultationBanner
             <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-gradient-to-br from-[#8C1D2D]/60 to-[#4D0A14] border border-[#D4AF37]/50 flex flex-col items-center justify-center p-2 shadow-inner">
               <Calendar className="w-7 h-7 sm:w-8 sm:h-8 text-[#E2BC6B] stroke-[1.5]" />
               <span className="text-[10px] uppercase font-bold tracking-widest text-[#E2BC6B] mt-1">
-                Dubai
+                Mumbai
               </span>
             </div>
 
