@@ -227,7 +227,7 @@ export default function AdminPortalPage() {
                   required
                   value={inputKey}
                   onChange={(e) => setInputKey(e.target.value)}
-                  placeholder="Enter key (default: almas2026)"
+                  placeholder="Enter security key"
                   className="w-full bg-[#120F0D] border border-[#44362B] text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#D4AF37]"
                 />
               </div>
